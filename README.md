@@ -4,7 +4,7 @@
 ## 👨‍👩‍👧‍👦 팀 소개
 | 김종민 | 마한성 | 배상준 | 이인재 |
 |:--:|:--:|:--:|:--:|
-| <img width="100" alt="Image" src="https://github.com/user-attachments/assets/e96992fe-13f0-4666-a9af-787d9a6e68c5" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/5ae03301-5869-4dd8-9c8a-831ead2b95aa" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/d2af51c8-8a1e-4fcc-99bd-0b7d69354398" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/8c3f07a5-7e5f-45f7-bc34-4f20354b044a" /> |
+| <img width="100" alt="Image" src="https://i.namu.wiki/i/L86LyjBjh3a5jR2MROCEfB7JFsLhs8NfNlyaIsMjMI5SG08K5bMCkZkXiGISpJZyDhz_cIub0XWIFRvCqZHnFI1zWaZBheglqqt3LGVGFbJ9XbQszGubmTumUv84OpNa3Caq4FPAviInu9yMMdI8Iw.webp" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/5ae03301-5869-4dd8-9c8a-831ead2b95aa" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/d2af51c8-8a1e-4fcc-99bd-0b7d69354398" /> | <img width="100" alt="Image" src="https://github.com/user-attachments/assets/8c3f07a5-7e5f-45f7-bc34-4f20354b044a" /> |
 
 ## 📊 프로젝트 개요
 
