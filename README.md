@@ -1,25 +1,5 @@
 # Spotify 트랙 데이터 분석 프로젝트
 
-
-## 👨‍👩‍👧‍👦 팀 소개
-| 김종민 | 마한성 | 배상준 | 이인재 |
-|:--:|:--:|:--:|:--:|
-| <img width="181" height="278" alt="image" src="https://github.com/user-attachments/assets/c737d324-4044-43fc-83fa-498e1304424d" /> | <img width="185" height="272" alt="image" src="https://github.com/user-attachments/assets/97de638f-2930-4ee1-be6d-195de3089478" /> | <img width="166" height="304" alt="image" src="https://github.com/user-attachments/assets/f16c843f-6f30-48aa-bcf9-26356c69eb08" /> | <img width="153" height="328" alt="image" src="https://github.com/user-attachments/assets/e4fb11be-c4ba-4648-a736-209776cc73dc" /> |
-
-
-## 📋 WBS 
-
-| 순번 | 진행 순서 | 담당자 | 예상 기간 | 산출물 |
-|:----:|-----------|:------:|:---------:|--------|
-| **1** | **프로젝트 기획 및 준비** | | | |
-| 1-1 | 프로젝트 주제 선정 | 전체 팀 | 9/16-9/17 | 주제 확정 |
-| 1-2 | 데이터셋 조사 및 선정 | 전체 팀 | 9/17-9/18 | 데이터셋 선정 |
-| 1-3 | 주제 선정 | 전체 팀 | 9/17 | 주제 선정 |
-| **2** | **탐색적 데이터 분석(EDA)** | | | |
-| 2-1 | 결측치 및 이상치 탐색 | 전체 팀 | 9/18 | 결측치/이상치 분석 |
-| 2-2 | 데이터 시각화 (히트맵 및 년 Spotify 트랙 데이터 분석 프로젝트
-
-
 ## 👨‍👩‍👧‍👦 팀 소개
 | 김종민 | 마한성 | 배상준 | 이인재 |
 |:--:|:--:|:--:|:--:|
