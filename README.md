@@ -113,6 +113,7 @@ df = pd.read_csv('./data/tracks.csv')
 
 ### 2. 데이터 구조 확인
 - `info()`: 전체 데이터 개수 및 결측치 확인
+```
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 899702 entries, 0 to 899701
 Data columns (total 33 columns):
@@ -153,9 +154,14 @@ Data columns (total 33 columns):
  32  name                899215 non-null  object 
 dtypes: float64(20), object(13)
 memory usage: 226.5+ MB
+```
+
+
+
 
 - `describe()`: 기초 통계량 분석
-![alt text](image.png)
+<img width="927" height="363" alt="image" src="https://github.com/user-attachments/assets/7137cd7a-8609-4c18-901a-6e2cfe6105e8" />
+
 
 - `columns`: 컬럼 정보 확인
 Index(['track_id', 'streams', 'artist_followers', 'genres',
