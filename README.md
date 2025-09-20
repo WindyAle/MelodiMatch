@@ -94,7 +94,7 @@ Zenodo (유럽집행위원회, CERN 운영)에서 제공하는 신뢰할 수 있
 | popularity | 인기도 | float64 |
 | streams | 스트리밍 횟수 | float64 |
 | rank | 차트 내에서 트랙의 순위 | float64 | 
-| trend | 순위 변화 | 차트 내에서 트랙 순위의 변화 | object |
+| trend | 순위 변화 | object |
 | explicit | 부적절한 표현 여부 | object |
 | energy | 에너지 수치 | float64 |
 | tempo | 템포 | float64 |
