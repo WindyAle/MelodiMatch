@@ -61,9 +61,6 @@ Zenodo (유럽집행위원회, CERN 운영)에서 제공하는 신뢰할 수 있
 
 시대별 음악 장르의 선호도 변화를 분석하여 음악 트렌드의 변화 특성을 파악
 
-
-## 📈 데이터 구조
-
 ### columns 설명
 
 | 컬럼명 | 설명 | 데이터 타입 |
@@ -174,18 +171,21 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 ### 3. 결측치 및 이상치 탐색
 - 결측치 분포 확인: `df.isnull().sum()`
 - 이상치 탐지: `df.boxplot()`
-![alt text](image-1.png)
+<img width="927" height="363" alt="image" src="https://github.com/user-attachments/assets/1ee5519e-991b-404c-b60b-ab6119e7e706" />
+
 
 
 
 ### 4. 데이터 시각화
 - **히트맵 분석**
-![alt text](image-2.png)
+<img width="1576" height="947" alt="image" src="https://github.com/user-attachments/assets/e1337e6f-3afa-4651-a6b7-b5dce721a48b" />
+
   - `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
   - 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
 
 - **음악의 특성 분포(Histogram)**
-![alt text](image-3.png)
+<img width="1583" height="982" alt="image" src="https://github.com/user-attachments/assets/c0e9846a-d1b9-48f1-b17b-befde30bcf55" />
+
 - acousticness가 적은 쪽에 치중된 이유
     - 클래식 곡이나 옛날 곡이 많을 가능성
     - 과거 곡을 커버하거나 새로 녹음해서 발매하기 때문에 발매일이 최신화된 옛날곡이 있음
@@ -196,8 +196,10 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 
 - **시대별 음악의 특성 변화**
-![alt text](image-4.png)
-![alt text](image-5.png)
+<img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/d8d69d35-c46b-470b-bc9e-5efca52c8d2e" />
+
+<img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/c6baa8b4-69a0-403f-92b4-2277d25ad60a" />
+
 - 1920년대 key와 tempo의 급격한 상승
     - 미국 흑인사회를 중심으로 재즈음악의 급성장 - 재즈 시대(Jazz Age)
     - 1차 세계대전 이후 미국이 세계 강대국으로 호황을 누리던 황금기 - 광란의 20년대(Roaring 20s)
@@ -213,15 +215,17 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 - `loudness`(음량)와 `acousticness`(어쿠스틱함) 반비례 관계 -어쿠스틱함이란 **앰프나 전자 장치 없이 자연적인 음향적 수단, 즉 악기 본연의 울림을 통해 소리를 내는 상태나 특성**을 의미합니다, 즉, 앰프나 전자 장치의 활용의 증가로 어쿠스틱함이 줄어들고 그에 따라 음량은 커졌다고 해석할 수 있음
 
 - **상위 5% 인기곡(popularity) 특성 시각화**
-![alt text](image-6.png)
+<img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
+
 
 - **상위 10위 아티스트**
-![alt text](image-7.png)
+<img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
 
 
 - **스케일링 전후의 특성 중요도**
-![alt text](image-8.png)
-![alt text](image-9.png)
+<img width="809" height="525" alt="image" src="https://github.com/user-attachments/assets/b49c4375-3a86-4344-8d72-ca604b87c109" />
+
+<img width="816" height="525" alt="image" src="https://github.com/user-attachments/assets/6961ecad-7ee3-4276-8648-5f08f94ffaad" />
 전체 약 89만개 중 40만개를 추출하여 RandomForestRegressor 적용
 - 특성 중요도 순위가 전반적으로 달라짐
 - 특성마다 값의 단위/자릿수가 달라서 생기는 차이로 판단
