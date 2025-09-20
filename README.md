@@ -36,28 +36,28 @@
 - 프로젝트 주제 및 선정 배경
 주제: 시대별 장르 선호도 변화 분석
 1. 주제 및 데이터셋 선정 이유
-> 주제 선정 배경
-스포티파이에서 제공하는 방대한 양의 데이터를 통해 여러 인사이트를 도출할 수 있을것을 기대하여 선정하게 되었습니다.
+* 주제 선정 배경
+-스포티파이에서 제공하는 방대한 양의 데이터를 통해 여러 인사이트를 도출할 수 있을것을 기대하여 선정하게 되었습니다.
 
 2. Spotify 데이터셋 선정 이유
-> 방대한 데이터 규모
+* 방대한 데이터 규모
 
 약 90만 개의 트랙 데이터로 충분한 샘플 사이즈 확보
 다양한 시대(1900년대~현재)와 장르를 아우르는 포괄적인 데이터
 
-> 풍부한 분석 변수
+* 풍부한 분석 변수
 
 33개의 다양한 컬럼으로 다각도 분석 가능
 음악적 특성 (tempo, energy, danceability, valence 등)부터 메타데이터까지 포함
 장르, 인기도, 발매일 등 시계열 분석에 필요한 정보 보유
 
-> 데이터 품질 및 접근성
+* 데이터 품질 및 접근성
 
 Zenodo (유럽집행위원회, CERN 운영)에서 제공하는 신뢰할 수 있는 데이터 소스
 구조화된 CSV 형태로 전처리 및 분석에 용이
 결측치가 존재하지만 전체적으로 분석 가능한 수준의 데이터 완성도
 
-> 높은 분석 활용도
+* 높은 분석 활용도
 
 시대별 트렌드 변화를 추적할 수 있는 시계열 데이터 구조
 머신러닝 모델 적용을 위한 충분한 피처와 데이터 볼륨
@@ -192,7 +192,8 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 ### 4. 데이터 시각화
 - **히트맵 분석**
-<img width="1576" height="947" alt="image" src="https://github.com/user-attachments/assets/e1337e6f-3afa-4651-a6b7-b5dce721a48b" />
+<img width="1556" height="924" alt="image" src="https://github.com/user-attachments/assets/6e983c59-194b-4992-b77d-82d2e84e1749" />
+
 
    - `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
   - 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
@@ -252,35 +253,35 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 ### 5. 데이터 정제
 - **불필요한 컬럼 결정**
 
-streams: 스트리밍 횟수 - popularity와 겹치는 column, 결측치 과다(5,870/899,702)
+* streams: 스트리밍 횟수 - popularity와 겹치는 column, 결측치 과다(5,870/899,702)
 
-album_total_tracks: 앨범의 총 트랙 수 
+* album_total_tracks: 앨범의 총 트랙 수 
 
-chart: 차트 정보
+* chart: 차트 정보
 
-available_markets: 서비스 가능 국가/지역
+* available_markets: 서비스 가능 국가/지역
 
-region: 지역(나라)
+* region: 지역(나라)
 
-mode(삭제후 ML시 필요하면 사용) - 장/단조
+* mode(삭제후 ML시 필요하면 사용) - 장/단조
 
-track_id: 트랙의 고유 ID
+* track_id: 트랙의 고유 ID
 
-album_name: 앨범 이름
+* album_name: 앨범 이름
 
-rank: 곡 순위 - 전체 column의 1%가 안되는 수치
+* rank: 곡 순위 - 전체 column의 1%가 안되는 수치
 
-track_track_number: 앨범 내 트랙 번호
+* track_track_number: 앨범 내 트랙 번호
 
-time_signature: 박자 
-- tempo 겹치는 컬럼이고 정확히 무엇을 뜻하는지 모름
-- 차원의 저주 완화
+* time_signature: 박자 
+  - tempo 겹치는 컬럼이고 정확히 무엇을 뜻하는지 모름
+  - 차원의 저주 완화
 
-duration_ms: 곡의 길이 - 결측치 99.2%
+* duration_ms: 곡의 길이 - 결측치 99.2%
 
-trend - 차트 내에서 순위 변화 - 분석에 불필요
+* trend - 차트 내에서 순위 변화 - 분석에 불필요
 
-added_at - added_at이 row가 적고 비슷한 column인 album_release_date이 더 major하다고 판단.
+* added_at - added_at이 row가 적고 비슷한 column인 album_release_date이 더 major하다고 판단.
 
 df.drop(['streams', 'album_total_tracks', 'chart', 'available_markets', 'region', 'mode', 'track_id', 'album_name', 'track_track_number', 'rank', 'track_artists', 'duration_ms', 'trend', 'track_album_album', 'added_at', 'name', 'time_signature'], axis=1)
 
