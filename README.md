@@ -232,10 +232,12 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 - **상위 5% 인기곡(popularity) 특성 시각화**
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
+<img width="537" height="301" alt="image" src="https://github.com/user-attachments/assets/948a96a5-2c5c-4ac1-97fd-c516e24dcb3d" />
 
 
 - **상위 10위 아티스트**
 <img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
+![Uploading image.png…]()
 
 
 - **스케일링 전후의 특성 중요도**
