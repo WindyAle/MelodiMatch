@@ -98,7 +98,7 @@ Zenodo (유럽집행위원회, CERN 운영)에서 제공하는 신뢰할 수 있
 | energy | 에너지 수치 | float64 |
 | tempo | 템포 | float64 |
 | key | 트랙의 조(tonality) | float64 |
-| mode | 트랙의 장/단조 | object |
+| mode | 트랙의 장/단조 | float64 |
 | time_signature | 박자 | float64 |
 | speechiness | 말소리(보컬, 랩등)의 비율 | float64 | 
 | danceability | 댄스 가능성 | float64 |
