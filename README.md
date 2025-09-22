@@ -185,7 +185,9 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 ### 3. 결측치 및 이상치 탐색
 - 결측치 분포 확인: `df.isnull().sum()`
 - 이상치 탐지: `df.boxplot()`
-<img width="927" height="363" alt="image" src="https://github.com/user-attachments/assets/1ee5519e-991b-404c-b60b-ab6119e7e706" />
+<img width="2983" height="1484" alt="image" src="https://github.com/user-attachments/assets/32dcf3ac-30cc-48a2-9cf6-b439a51e3005" />
+<img width="2984" height="1484" alt="image" src="https://github.com/user-attachments/assets/ff6d6450-2193-40e1-9751-2208dc004f97" />
+- Boxplot상에는 이상치가 존재해보이나 인기도, 곡의 특성들을 고려했을때 이상치가 아니라고 판단
 
 
 
