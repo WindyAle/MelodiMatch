@@ -216,7 +216,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 
 > **시대별 음악의 특성 변화**
-<img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/d8d69d35-c46b-470b-bc9e-5efca52c8d2e" />
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/3ada5a50-eefe-48a8-b1e0-bba00d599993" />
 
 <img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/c6baa8b4-69a0-403f-92b4-2277d25ad60a" />
 
