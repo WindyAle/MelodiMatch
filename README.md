@@ -197,21 +197,21 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 <img width="1553" height="924" alt="image" src="https://github.com/user-attachments/assets/b1acf844-51c1-435f-a65b-a08e56ce2720" />
 
 
-- `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
-- 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
+* `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
+* 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
 
 
 - **음악의 특성 분포(Histogram)**
 <img width="1583" height="982" alt="image" src="https://github.com/user-attachments/assets/c0e9846a-d1b9-48f1-b17b-befde30bcf55" />
 
-- acousticness가 양 끝 값에 치중된 이유
+* acousticness가 양 끝 값에 치중된 이유
     - 클래식이나 전자 사운드를 사용하기 전의 음악일 가능성이 있음.
     - 최신곡의 경우 전자 사운드를 대부분 쓰는 경우도 있음.
-- loudness가 치우친 정규분포의 형태를 띰
+* loudness가 치우친 정규분포의 형태를 띰
     - 특별히 선호되고 듣기 좋은 음량의 구간이 정해져 있음을 유추 가능.
-- speechiness는 0.07정도에서 높은 빈도를 나타냄
+* speechiness는 0.07정도에서 높은 빈도를 나타냄
     - 선호되는 speechiness의 정도가 있음. 혹은 음악의 특성상 이를 크게 벗어날 수 없음.
-- tempo는 120~140 구간이 최다 빈도를 띰
+* tempo는 120~140 구간이 최다 빈도를 띰
     - 이 구간에 해당하는 BPM을 가진 장르는 팝, 힙합, EDM이 다수.
 
 
@@ -220,19 +220,19 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 <img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/c6baa8b4-69a0-403f-92b4-2277d25ad60a" />
 
-- 1920년대 key와 tempo의 급격한 상승
+* 1920년대 key와 tempo의 급격한 상승
     - 미국 흑인사회를 중심으로 재즈음악의 급성장 - 재즈 시대(Jazz Age)
     - 1차 세계대전 이후 미국이 세계 강대국으로 호황을 누리던 황금기 - 광란의 20년대(Roaring 20s)
     - 복잡한 멜로디와 빠른 템포를 가진 신나는 곡
-- 1940년대 부근에 급격한 감소 - loudness, tempo
+* 1940년대 부근에 급격한 감소 - loudness, tempo
     - 2차 세계대전의 영향일 가능성
     - 전쟁으로 인해 기존의 밴드 음악에서 감성적인 발라드 음악이 유행
-- 1960년대 이후부터 loudness, tempo 상승
+* 1960년대 이후부터 loudness, tempo 상승
     - 록(Rock) 음악의 유행으로 강렬한 에너지와 빠른 비트가 대중문화를 지배
-- 1990년대 이후 가사에 비속어 포함 급증
+* 1990년대 이후 가사에 비속어 포함 급증
     - 스트리밍 서비스 등장: 방송국에서 틀어주는 검열된(Censored) 음악에서 자기가 직접 찾아듣는 시대
     - 갱스터 랩 & 힙합의 유행: 기성세대에 대한 반항과 강렬한 사회적 메세지를 담는 기조
-- `loudness`(음량)와 `acousticness`(어쿠스틱함) 반비례 관계 -어쿠스틱함이란 **앰프나 전자 장치 없이 자연적인 음향적 수단, 즉 악기 본연의 울림을 통해 소리를 내는 상태나 특성**을 의미합니다, 즉, 앰프나 전자 장치의 활용의 증가로 어쿠스틱함이 줄어들고 그에 따라 음량은 커졌다고 해석할 수 있음
+* `loudness`(음량)와 `acousticness`(어쿠스틱함) 반비례 관계 -어쿠스틱함이란 **앰프나 전자 장치 없이 자연적인 음향적 수단, 즉 악기 본연의 울림을 통해 소리를 내는 상태나 특성**을 의미합니다, 즉, 앰프나 전자 장치의 활용의 증가로 어쿠스틱함이 줄어들고 그에 따라 음량은 커졌다고 해석할 수 있음
 
 - **상위 5% 인기곡(popularity) 특성 시각화**
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
@@ -249,11 +249,11 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 <img width="816" height="525" alt="image" src="https://github.com/user-attachments/assets/6961ecad-7ee3-4276-8648-5f08f94ffaad" />
 전체 약 89만개 중 40만개를 추출하여 RandomForestRegressor 적용
-- 특성 중요도 순위가 전반적으로 달라짐
-- 특성마다 값의 단위/자릿수가 달라서 생기는 차이로 판단
+* 특성 중요도 순위가 전반적으로 달라짐
+* 특성마다 값의 단위/자릿수가 달라서 생기는 차이로 판단
     - ex) energy는 최대치가 1이지만 release_date는 2000대의 숫자가 존재
     
-- 최근 아티스트들을 보면 유명인들과 콜라보를 하고 팔로워를 얻기 위해 SNS로 홍보하고 앨범 발매일을 홍보하는 것이 이미 이에 대한 분석을 통해 적절히 대응하고 있음을 알 수 있음
+* 최근 아티스트들을 보면 유명인들과 콜라보를 하고 팔로워를 얻기 위해 SNS로 홍보하고 앨범 발매일을 홍보하는 것이 이미 이에 대한 분석을 통해 적절히 대응하고 있음을 알 수 있음
 
 ### 5. 데이터 정제
 - **불필요한 컬럼 결정**
