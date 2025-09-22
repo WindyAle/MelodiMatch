@@ -240,12 +240,17 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 </div>
 
 > **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
+<div align="center">
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/c8c6ae36-35b1-4a6b-b0b6-390b9e4da741" />
+</div>
 
-
+<div align="center">
 - 2010년대에 Pop의 인기가 급격히 올라갔고 2020년대에도 여전히 인기가 있지만 다른 장르들도 관심도가 올라간 것을 알 수 있음
-  
+</div>
+
+<div align="center">
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
+</div>
 
 - 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
  - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
