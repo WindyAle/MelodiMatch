@@ -16,10 +16,12 @@
 | 1-3 | 주제 선정 | 전체 팀 | 9/17 | 주제 선정 |
 | **2** | **탐색적 데이터 분석(EDA)** | | | |
 | 2-1 | 결측치 및 이상치 탐색 | 전체 팀 | 9/18 | 결측치/이상치 분석 |
-| 2-2 | 데이터 시각화 | 김종민, 배상준 | 9/18-9/22 | 데이터 시각화자료 |
+| 2-2 | 데이터 시각화 (히트맵 및 년도별 특성 변화도 그래프) | 김종민 | 9/18-9/22 | 히트맵 및 연도별 특성 변화도 그래프 |
 | **3** | **데이터 정제 및 전처리** | | | |
 | 3-1 | 담당 컬럼별 데이터 Standardscale/MinMaxscale 비교 | 전체 팀 | 9/19 | 데이터 처리 방법 |
-| **4** | **그 외** | | | |
+| **4** | **데이터 변환 및 피처 엔지니어링** | | | |
+| 4-1 | Feature importance 그래프 작성 | 배상준 | 9/20-9/22 | 피처 중요도 차트 |
+| **5** | **그 외** | | | |
 | 5-1 |  함수 모듈화 | 이인재 | 9/19-9/20 | 코드 |
 | 5-2 | 리드미 작성 | 마한성 | 9/20-9/22 | 리드미 파일 |
 
@@ -45,7 +47,171 @@
 * 풍부한 분석 변수
 
 33개의 다양한 컬럼으로 다각도 분석 가능
-음악적 특성 (tempo, energy, danceability, valence 등)부터 메타데띔
+음악적 특성 (tempo, energy, danceability, valence 등)부터 메타데이터까지 포함
+장르, 인기도, 발매일 등 시계열 분석에 필요한 정보 보유
+
+* 데이터 품질 및 접근성
+
+Zenodo (유럽집행위원회, CERN 운영)에서 제공하는 신뢰할 수 있는 데이터 소스
+구조화된 CSV 형태로 전처리 및 분석에 용이
+결측치가 존재하지만 전체적으로 분석 가능한 수준의 데이터 완성도
+
+* 높은 분석 활용도
+
+시대별 트렌드 변화를 추적할 수 있는 시계열 데이터 구조
+머신러닝 모델 적용을 위한 충분한 피처와 데이터 볼륨
+
+
+## 📂 데이터셋
+
+- **데이터명**: Almost a million Spotify tracks
+- **데이터 크기**: 899,702개 트랙(row)
+- **데이터 출처**: [Zenodo](https://zenodo.org/records/11453410) (유럽집행위원회 및 CERN 운영)
+- **파일명**: `tracks.csv`
+
+
+## 🎯 프로젝트 목표
+
+각 특성을 분석하여 불필요한 column을 제거하고 비슷한 column은 합치고 scale의 변화등을 통해 EDA를 진행하고 나아가
+해당 특성들로 시대별 음악 장르의 선호도 변화를 통해 미래의 선호도를 예측하는 것.
+
+### columns 설명
+
+| 컬럼명 | 설명 | 데이터 타입 |
+|--------|------|-------------|
+| track_id | 트랙 고유 ID | object |
+| name | 트랙의 제목 | object |
+| album_name | 앨범 이름 | object |
+| album_total_tracks | 트랙이 속한 앨범에 있는 전체 곡의 수 | float64 |
+| chart | 트랙이 속한 차트의 이름 | object |
+| track_track_number | 앨범 내의 트랙 번호 | float64 |
+| track_album_album | 트랙이 속한 앨범의 유형 | object|
+| genres | 장르 정보 | object |
+| track_artists | 아티스트 이름 | object |
+| artist_followers | 아티스트 팔로워 수 | float64 |
+| artist_popularity | 아티스트 인기도 | float64 |
+| popularity | 인기도 | float64 |
+| streams | 스트리밍 횟수 | float64 |
+| rank | 차트 내에서 트랙의 순위 | float64 | 
+| trend | 순위 변화 | object |
+| explicit | 부적절한 표현 여부 | object |
+| energy | 에너지 수치 | float64 |
+| tempo | 템포 | float64 |
+| key | 트랙의 조(tonality) | float64 |
+| mode | 트랙의 장/단조 | float64 |
+| time_signature | 박자 | float64 |
+| speechiness | 말소리(보컬, 랩등)의 비율 | float64 | 
+| danceability | 댄스 가능성 | float64 |
+| valence | 긍정도 | float64 |
+| acousticness | 어쿠스틱(비전기 사운드) 정도 | float64 |
+| liveness | 공연에서 녹음된 정도 | float64 |
+| loudness | 음량 | float64 |
+| instrumentalness | 보컬이 없는 정도 | float64 | 
+| duration_ms | 재생 시간 | float64 |
+| album_release_date | 앨범 발매일 | object |
+| added_at | 트랙이 업로드 된 시점 | object |
+| available_markets | 이용 가능 국가 | object |
+| region | 지역 | object |
+
+
+## 🔍 EDA 과정
+
+### 1. 데이터 로드
+```python
+df = pd.read_csv('./data/tracks.csv')
+```
+
+### 2. 데이터 구조 확인
+- `info()`: 전체 데이터 개수 및 결측치 확인
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 899702 entries, 0 to 899701
+Data columns (total 33 columns):
+ #   Column              Non-Null Count   Dtype  
+---  ------              --------------   -----  
+ 0   track_id            899702 non-null  object 
+ 1   streams             5870 non-null    float64
+ 2   artist_followers    892496 non-null  float64
+ 3   genres              892516 non-null  object 
+ 4   album_total_tracks  899701 non-null  float64
+ 5   track_artists       99943 non-null   object 
+ 6   artist_popularity   892516 non-null  float64
+ 7   explicit            899701 non-null  object 
+ 8   tempo               899224 non-null  float64
+ 9   chart               7040 non-null    object 
+ 10  album_release_date  899701 non-null  object 
+ 11  energy              899224 non-null  float64
+ 12  key                 899224 non-null  float64
+ 13  added_at            394649 non-null  object 
+ 14  popularity          899701 non-null  float64
+ 15  track_album_album   99997 non-null   object 
+ 16  duration_ms         7040 non-null    float64
+ 17  available_markets   899701 non-null  object 
+ 18  track_track_number  99997 non-null   float64
+ 19  rank                7040 non-null    float64
+ 20  mode                899224 non-null  float64
+ 21  time_signature      899224 non-null  float64
+ 22  album_name          899271 non-null  object 
+ 23  speechiness         899224 non-null  float64
+ 24  region              7040 non-null    object 
+ 25  danceability        899224 non-null  float64
+ 26  valence             899224 non-null  float64
+ 27  acousticness        899224 non-null  float64
+ 28  liveness            899224 non-null  float64
+ 29  trend               7040 non-null    object 
+ 30  instrumentalness    899224 non-null  float64
+ 31  loudness            899224 non-null  float64
+ 32  name                899215 non-null  object 
+dtypes: float64(20), object(13)
+memory usage: 226.5+ MB
+```
+
+- `describe()`: 기초 통계량 분석
+<img width="1353" height="312" alt="image" src="https://github.com/user-attachments/assets/24dd4d60-f421-4246-b284-800ef6df2185" />
+
+
+
+- `columns`: 컬럼 정보 확인
+Index(['track_id', 'streams', 'artist_followers', 'genres',
+       'album_total_tracks', 'track_artists', 'artist_popularity', 'explicit',
+       'tempo', 'chart', 'album_release_date', 'energy', 'key', 'added_at',
+       'popularity', 'track_album_album', 'duration_ms', 'available_markets',
+       'track_track_number', 'rank', 'mode', 'time_signature', 'album_name',
+       'speechiness', 'region', 'danceability', 'valence', 'acousticness',
+       'liveness', 'trend', 'instrumentalness', 'loudness', 'name'],
+      dtype='object')
+
+
+### 3. 결측치 및 이상치 탐색
+- 결측치 분포 확인: `df.isnull().sum()`
+- 이상치 탐지: `df.boxplot()`
+<img width="2983" height="1484" alt="image" src="https://github.com/user-attachments/assets/32dcf3ac-30cc-48a2-9cf6-b439a51e3005" />
+<img width="2984" height="1484" alt="image" src="https://github.com/user-attachments/assets/ff6d6450-2193-40e1-9751-2208dc004f97" />
+- Boxplot상에는 이상치가 존재해보이나 인기도, 곡의 특성들을 고려했을때 이상치가 아니라고 판단
+
+
+
+
+### 4. 데이터 시각화
+> **히트맵 분석**
+<img width="1553" height="924" alt="image" src="https://github.com/user-attachments/assets/b1acf844-51c1-435f-a65b-a08e56ce2720" />
+
+
+* `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
+* 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
+
+
+> **음악의 특성 분포(Histogram)**
+<img width="1583" height="982" alt="image" src="https://github.com/user-attachments/assets/c0e9846a-d1b9-48f1-b17b-befde30bcf55" />
+
+* acousticness가 양 끝 값에 치중된 이유
+    - 클래식이나 전자 사운드를 사용하기 전의 음악일 가능성이 있음.
+    - 최신곡의 경우 전자 사운드를 대부분 쓰는 경우도 있음.
+* loudness가 치우친 정규분포의 형태를 띰
+    - 특별히 선호되고 듣기 좋은 음량의 구간이 정해져 있음을 유추 가능.
+* speechiness는 0.07정도에서 높은 빈도를 나타냄
+    - 선호되는 speechiness의 정도가 있음. 혹은 음악의 특성상 이를 크게 벗어날 수 없음.
+* tempo는 120~140 구간이 최다 빈도를 띰
     - 이 구간에 해당하는 BPM을 가진 장르는 팝, 힙합, EDM이 다수.
 
 
