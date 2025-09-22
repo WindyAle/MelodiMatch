@@ -234,17 +234,17 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
     - 갱스터 랩 & 힙합의 유행: 기성세대에 대한 반항과 강렬한 사회적 메세지를 담는 기조
 * `loudness`(음량)와 `acousticness`(어쿠스틱함) 반비례 관계 -어쿠스틱함이란 **앰프나 전자 장치 없이 자연적인 음향적 수단, 즉 악기 본연의 울림을 통해 소리를 내는 상태나 특성**을 의미합니다, 즉, 앰프나 전자 장치의 활용의 증가로 어쿠스틱함이 줄어들고 그에 따라 음량은 커졌다고 해석할 수 있음
 
-- **상위 5% 인기곡(popularity) 특성 시각화**
+> **상위 5% 인기곡(popularity) 특성 시각화**
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
 <img width="537" height="301" alt="image" src="https://github.com/user-attachments/assets/948a96a5-2c5c-4ac1-97fd-c516e24dcb3d" />
 
 
-- **상위 10위 아티스트**
+> **상위 10위 아티스트**
 <img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
 
 
 
-- **스케일링 전후의 특성 중요도**
+> **스케일링 전후의 특성 중요도**
 <img width="809" height="525" alt="image" src="https://github.com/user-attachments/assets/b49c4375-3a86-4344-8d72-ca604b87c109" />
 
 <img width="816" height="525" alt="image" src="https://github.com/user-attachments/assets/6961ecad-7ee3-4276-8648-5f08f94ffaad" />
@@ -256,7 +256,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 * 최근 아티스트들을 보면 유명인들과 콜라보를 하고 팔로워를 얻기 위해 SNS로 홍보하고 앨범 발매일을 홍보하는 것이 이미 이에 대한 분석을 통해 적절히 대응하고 있음을 알 수 있음
 
 ### 5. 데이터 정제
-- **불필요한 컬럼 결정**
+> **불필요한 컬럼 결정**
 
 * streams: 스트리밍 횟수 - popularity와 겹치는 column, 결측치 과다(5,870/899,702)
 
