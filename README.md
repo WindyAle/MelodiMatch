@@ -248,23 +248,23 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 아티스트의 인기(스타 파워)와 곡 자체의 인기는 항상 비례할까?
 
+- 해당 값들은 각 아티스트의 곡별 인기도를 나타냄
+  
 - 아티스트의 명성도는 인기도와 대체로 비례함
 - 팔로워 수와 인기도는 명확한 관계가 보이지 않음
     - 곡 자체의 인기와 아티스트에 대한 팬심은 별개인듯
     - 가수의 팬이 아니라도 노래는 얼마든지 들을 수 있음
     - 팔로우가 많다고 노래가 인기 있는 것은 아님
 
+> **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9e3347f1-dbcb-40c5-b4b0-b18cd851ea9e" />
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
 
-> **스케일링 전후의 특성 중요도**
-<img width="809" height="525" alt="image" src="https://github.com/user-attachments/assets/b49c4375-3a86-4344-8d72-ca604b87c109" />
+    - 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
+        - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
+        - 90년대에 유행했던 클래식과 현대음악을 조합하는 형태인 Classical Crossover의 영향으로 보임
+        → 한국에서는 ‘팝페라’라는 단어로 알려짐
 
-<img width="816" height="525" alt="image" src="https://github.com/user-attachments/assets/6961ecad-7ee3-4276-8648-5f08f94ffaad" />
-전체 약 89만개 중 40만개를 추출하여 RandomForestRegressor 적용
-* 특성 중요도 순위가 전반적으로 달라짐
-* 특성마다 값의 단위/자릿수가 달라서 생기는 차이로 판단
-    - ex) energy는 최대치가 1이지만 release_date는 2000대의 숫자가 존재
-    
-* 최근 아티스트들을 보면 유명인들과 콜라보를 하고 팔로워를 얻기 위해 SNS로 홍보하고 앨범 발매일을 홍보하는 것이 이미 이에 대한 분석을 통해 적절히 대응하고 있음을 알 수 있음
 
 ### 5. 데이터 정제
 > **불필요한 컬럼 결정**
