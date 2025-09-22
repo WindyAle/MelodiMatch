@@ -239,7 +239,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 <img width="455" height="470" alt="image" src="https://github.com/user-attachments/assets/09a98a7c-e8c4-4340-9196-c4eae1d9f71f" />
 
 > **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
-<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9e3347f1-dbcb-40c5-b4b0-b18cd851ea9e" />
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/c8c6ae36-35b1-4a6b-b0b6-390b9e4da741" />
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
 
 - 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
