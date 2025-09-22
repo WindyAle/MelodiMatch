@@ -200,6 +200,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
    - `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
   - 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
 
+
 - **음악의 특성 분포(Histogram)**
 <img width="1583" height="982" alt="image" src="https://github.com/user-attachments/assets/c0e9846a-d1b9-48f1-b17b-befde30bcf55" />
 
