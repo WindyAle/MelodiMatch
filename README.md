@@ -167,7 +167,8 @@ memory usage: 226.5+ MB
 ```
 
 - `describe()`: 기초 통계량 분석
-<img width="927" height="363" alt="image" src="https://github.com/user-attachments/assets/7137cd7a-8609-4c18-901a-6e2cfe6105e8" />
+<img width="1353" height="312" alt="image" src="https://github.com/user-attachments/assets/24dd4d60-f421-4246-b284-800ef6df2185" />
+
 
 
 - `columns`: 컬럼 정보 확인
