@@ -260,10 +260,10 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9e3347f1-dbcb-40c5-b4b0-b18cd851ea9e" />
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
 
-    - 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
-        - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
-        - 90년대에 유행했던 클래식과 현대음악을 조합하는 형태인 Classical Crossover의 영향으로 보임
-        → 한국에서는 ‘팝페라’라는 단어로 알려짐
+- 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
+ - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
+ - 90년대에 유행했던 클래식과 현대음악을 조합하는 형태인 Classical Crossover의 영향으로 보임
+ → 한국에서는 ‘팝페라’라는 단어로 알려짐
 
 
 ### 5. 데이터 정제
