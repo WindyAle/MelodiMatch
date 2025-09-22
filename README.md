@@ -205,7 +205,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 * acousticness가 양 끝 값에 치중된 이유
     - 클래식이나 전자 사운드를 사용하기 전의 음악일 가능성이 있음.
     - 최신곡의 경우 전자 사운드를 대부분 쓰는 경우도 있음.
-* loudness가 치우친 정규분포의 형태를 띰
+* loudness가 치우친 정규분포의 형태를 띔
     - 특별히 선호되고 듣기 좋은 음량의 구간이 정해져 있음을 유추 가능.
 * speechiness는 0.07정도에서 높은 빈도를 나타냄
     - 선호되는 speechiness의 정도가 있음. 혹은 음악의 특성상 이를 크게 벗어날 수 없음.
@@ -302,7 +302,9 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 * trend - 차트 내에서 순위 변화 - 분석에 불필요
 
-* added_at - added_at이 row가 적고 비슷한 column인 album_release_date이 더 major하다고 판단.
+* added_at - added_at이 row가 적고 비슷한 column인 album_release_date이 더 major하다고 판단
+
+* album_release_date - 연-월-일로 된 데이터여서 year로 연도만 나오고 바꿔서 사용
 
 df.drop(['streams', 'album_total_tracks', 'chart', 'available_markets', 'region', 'mode', 'track_id', 'album_name', 'track_track_number', 'rank', 'track_artists', 'duration_ms', 'trend', 'track_album_album', 'added_at', 'name', 'time_signature'], axis=1)
 
