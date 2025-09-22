@@ -192,7 +192,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 ### 4. 데이터 시각화
 - **히트맵 분석**
-<img width="1556" height="924" alt="image" src="https://github.com/user-attachments/assets/6e983c59-194b-4992-b77d-82d2e84e1749" />
+<img width="1553" height="924" alt="image" src="https://github.com/user-attachments/assets/b1acf844-51c1-435f-a65b-a08e56ce2720" />
 
 
    - `acousticness`와 `instrumentalness` 간 양의 상관관계 확인
