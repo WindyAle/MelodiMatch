@@ -193,7 +193,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 
 ### 4. 데이터 시각화
-- **히트맵 분석**
+> **히트맵 분석**
 <img width="1553" height="924" alt="image" src="https://github.com/user-attachments/assets/b1acf844-51c1-435f-a65b-a08e56ce2720" />
 
 
@@ -201,7 +201,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 * 두 컬럼 모두 다른 컬럼들과 전체적으로 음의 상관관계
 
 
-- **음악의 특성 분포(Histogram)**
+> **음악의 특성 분포(Histogram)**
 <img width="1583" height="982" alt="image" src="https://github.com/user-attachments/assets/c0e9846a-d1b9-48f1-b17b-befde30bcf55" />
 
 * acousticness가 양 끝 값에 치중된 이유
@@ -215,7 +215,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
     - 이 구간에 해당하는 BPM을 가진 장르는 팝, 힙합, EDM이 다수.
 
 
-- **시대별 음악의 특성 변화**
+> **시대별 음악의 특성 변화**
 <img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/d8d69d35-c46b-470b-bc9e-5efca52c8d2e" />
 
 <img width="1165" height="713" alt="image" src="https://github.com/user-attachments/assets/c6baa8b4-69a0-403f-92b4-2277d25ad60a" />
