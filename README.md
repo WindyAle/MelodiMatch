@@ -236,7 +236,9 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 > **상위 5% 인기곡(popularity) 특성 시각화**
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
-<img width="455" height="470" alt="image" src="https://github.com/user-attachments/assets/09a98a7c-e8c4-4340-9196-c4eae1d9f71f" />
+<center>
+ <img width="455" height="470" alt="image" src="https://github.com/user-attachments/assets/09a98a7c-e8c4-4340-9196-c4eae1d9f71f" />
+</center>
 
 > **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
 <img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/c8c6ae36-35b1-4a6b-b0b6-390b9e4da741" />
