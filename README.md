@@ -315,9 +315,8 @@ df.drop(['streams', 'album_total_tracks', 'chart', 'available_markets', 'region'
 
 ## 📋 다음 단계
 
-1. Feature importance 확인을 통한 최종 컬럼 선정
-2. 시대별 장르 선호도 분석 모델링
-3. 결과 시각화 및 인사이트 도출
+1. Feature importance 확인을 통한 학습시킬 최종 컬럼 선정
+2. 시대별 음악적 선호도 분석을 통한 유행할 음악 예측
 
 
 
