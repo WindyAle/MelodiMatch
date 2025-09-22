@@ -236,12 +236,23 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 > **상위 5% 인기곡(popularity) 특성 시각화**
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
-<img width="537" height="301" alt="image" src="https://github.com/user-attachments/assets/948a96a5-2c5c-4ac1-97fd-c516e24dcb3d" />
+<img width="455" height="470" alt="image" src="https://github.com/user-attachments/assets/09a98a7c-e8c4-4340-9196-c4eae1d9f71f" />
 
 
 > **상위 10위 아티스트**
 <img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
 
+
+> **스타 파워와 인기도 상관관계**
+<img width="1489" height="593" alt="image" src="https://github.com/user-attachments/assets/89a5d9cd-bd88-40fa-824e-a443b2da3549" />
+
+아티스트의 인기(스타 파워)와 곡 자체의 인기는 항상 비례할까?
+
+- 아티스트의 명성도는 인기도와 대체로 비례함
+- 팔로워 수와 인기도는 명확한 관계가 보이지 않음
+    - 곡 자체의 인기와 아티스트에 대한 팬심은 별개인듯
+    - 가수의 팬이 아니라도 노래는 얼마든지 들을 수 있음
+    - 팔로우가 많다고 노래가 인기 있는 것은 아님
 
 
 > **스케일링 전후의 특성 중요도**
