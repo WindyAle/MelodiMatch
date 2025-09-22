@@ -238,7 +238,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 
 - **상위 10위 아티스트**
 <img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
-![Uploading image.png…]()
+
 
 
 - **스케일링 전후의 특성 중요도**
