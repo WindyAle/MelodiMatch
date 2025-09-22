@@ -238,6 +238,14 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
 <img width="1244" height="791" alt="image" src="https://github.com/user-attachments/assets/e6855d88-6d39-46f2-aff2-70731c0c699b" />
 <img width="455" height="470" alt="image" src="https://github.com/user-attachments/assets/09a98a7c-e8c4-4340-9196-c4eae1d9f71f" />
 
+> **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9e3347f1-dbcb-40c5-b4b0-b18cd851ea9e" />
+<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
+
+- 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
+ - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
+ - 90년대에 유행했던 클래식과 현대음악을 조합하는 형태인 Classical Crossover의 영향으로 보임
+ → 한국에서는 ‘팝페라’라는 단어로 알려짐
 
 > **상위 10위 아티스트**
 <img width="1084" height="713" alt="image" src="https://github.com/user-attachments/assets/5674c8b0-83af-4ff8-a29b-5eaaaffb9e08" />
@@ -256,14 +264,7 @@ Index(['track_id', 'streams', 'artist_followers', 'genres',
     - 가수의 팬이 아니라도 노래는 얼마든지 들을 수 있음
     - 팔로우가 많다고 노래가 인기 있는 것은 아님
 
-> **시대별 장르의 트렌드 및 상위 5% 장르 트렌드**
-<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9e3347f1-dbcb-40c5-b4b0-b18cd851ea9e" />
-<img width="630" height="470" alt="image" src="https://github.com/user-attachments/assets/9c8e9224-e84f-4438-84ff-5099208e724a" />
 
-- 전체 트렌드 추이와 상위 인기곡 트렌드 추이가 모양이 유사
- - 90년대엔 전체 표본에서는 Classical 장르가 많았으나 상위 인기곡은 Rock이 지배함
- - 90년대에 유행했던 클래식과 현대음악을 조합하는 형태인 Classical Crossover의 영향으로 보임
- → 한국에서는 ‘팝페라’라는 단어로 알려짐
 
 
 ### 5. 데이터 정제
