@@ -3,9 +3,11 @@ import pandas as pd
 import pickle
 import re
 import os
+import sys
 from streamlit.components.v1 import iframe
 
 # --- 경로 설정 및 모듈 임포트 ---
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from code.get_reco import load_recommendation_model
 from spotify_utils import get_multiple_track_details
 

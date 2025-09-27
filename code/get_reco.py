@@ -1,15 +1,17 @@
 import pickle
 import pandas as pd
 import streamlit as st
+import os
 
 @st.cache_data
 def load_recommendation_model():
     try:
-        with open('./data/knn_model.pkl', 'rb') as f:
+        base_path = os.path.join(os.path.dirname(__file__), '..', 'data')
+        with open(os.path.join(base_path, 'knn_model.pkl'), 'rb') as f:
             knn_model = pickle.load(f)
-        with open('./data/preprocessor.pkl', 'rb') as f:
+        with open(os.path.join(base_path, 'preprocessor.pkl'), 'rb') as f:
             preprocessor = pickle.load(f)
-        df = pd.read_pickle('./data/processed_tracks_df.pkl')
+        df = pd.read_pickle(os.path.join(base_path, 'processed_tracks_df.pkl'))
         return knn_model, preprocessor, df, True
     except FileNotFoundError:
         return None, None, None, False
