@@ -10,7 +10,7 @@ import os
 import re
 from difflib import get_close_matches
 
-def create_recommendation_model(data_path='data/tracks_over_2000.csv'):
+def create_recommendation_model(data_path='../data/tracks_over_2000.csv'):
     """
     정제된 데이터를 로드하고, 오디오 및 장르 특성을 기반으로 KNN 모델을 학습시킨 후,
     나중에 사용할 수 있도록 모델, 전처리기, 데이터프레임을 저장합니다.
@@ -101,9 +101,9 @@ def create_recommendation_model(data_path='data/tracks_over_2000.csv'):
     knn_model.fit(features_transformed)
 
     # 결과물 저장
-    os.makedirs('data', exist_ok=True)
-    with open('data/knn_model.pkl', 'wb') as f: pickle.dump(knn_model, f)
-    with open('data/preprocessor.pkl', 'wb') as f: pickle.dump(preprocessor, f)
+    os.makedirs('../data', exist_ok=True)
+    with open('../data/knn_model.pkl', 'wb') as f: pickle.dump(knn_model, f)
+    with open('../data/preprocessor.pkl', 'wb') as f: pickle.dump(preprocessor, f)
 
     feature_info = {
         'numerical': numerical_features,
@@ -112,9 +112,9 @@ def create_recommendation_model(data_path='data/tracks_over_2000.csv'):
         'text': text_features if has_text_feature else None,
         'all': feature_cols
     }
-    with open('data/feature_info.pkl', 'wb') as f: pickle.dump(feature_info, f)
+    with open('../data/feature_info.pkl', 'wb') as f: pickle.dump(feature_info, f)
     
-    df.to_pickle('data/processed_tracks_df.pkl')
+    df.to_pickle('../data/processed_tracks_df.pkl')
     print("\n추천 모델 생성 완료")
 
 def get_recommendations_interactive():
@@ -127,20 +127,20 @@ def get_recommendations_interactive():
 
     # 모델 파일 로드
     try:
-        with open('data/knn_model.pkl', 'rb') as f: knn_model = pickle.load(f)
-        with open('data/preprocessor.pkl', 'rb') as f: preprocessor = pickle.load(f)
-        with open('data/feature_info.pkl', 'rb') as f: feature_info = pickle.load(f)
-        df = pd.read_pickle('data/processed_tracks_df.pkl')
+        with open('../data/knn_model.pkl', 'rb') as f: knn_model = pickle.load(f)
+        with open('../data/preprocessor.pkl', 'rb') as f: preprocessor = pickle.load(f)
+        with open('../data/feature_info.pkl', 'rb') as f: feature_info = pickle.load(f)
+        df = pd.read_pickle('../data/processed_tracks_df.pkl')
         print("모델 로드 완료\n")
     except FileNotFoundError:
         print("모델 파일 없음. 새로운 모델을 생성 중...")
         create_recommendation_model()
 
         try:
-            with open('data/knn_model.pkl', 'rb') as f: knn_model = pickle.load(f)
-            with open('data/preprocessor.pkl', 'rb') as f: preprocessor = pickle.load(f)
-            with open('data/feature_info.pkl', 'rb') as f: feature_info = pickle.load(f)
-            df = pd.read_pickle('data/processed_tracks_df.pkl')
+            with open('../data/knn_model.pkl', 'rb') as f: knn_model = pickle.load(f)
+            with open('../data/preprocessor.pkl', 'rb') as f: preprocessor = pickle.load(f)
+            with open('../data/feature_info.pkl', 'rb') as f: feature_info = pickle.load(f)
+            df = pd.read_pickle('../data/processed_tracks_df.pkl')
             print("모델 로드 완료\n")
         except FileNotFoundError:
             print("생성 후에도 모델을 찾을 수 없음. 스크립트 종료.")
@@ -210,7 +210,7 @@ def get_recommendations_interactive():
                     selected_index = year_diff.idxmin()
                     selected_year = matching_songs.loc[selected_index, 'album_release_date']
                     print(f"\n{year_filter}년 버전 없음.")
-                    print("가장 가까운 연도의 버전 사용: {int(selected_year)}년")
+                    print(f"가장 가까운 연도의 버전 사용: {int(selected_year)}년")
             else:
                 print("\n유사한 제목의 노래")
                 print("  0. 가장 인기 있는 버전 자동 선택")
@@ -314,7 +314,7 @@ if __name__ == '__main__':
     # 모델 존재 여부 확인
     model_files = ['knn_model.pkl', 'preprocessor.pkl', 'processed_tracks_df.pkl', 'feature_info.pkl']
     
-    if not all(os.path.exists(f'data/{fname}') for fname in model_files):
+    if not all(os.path.exists(f'../data/{fname}') for fname in model_files):
         print("모델 파일을 찾을 수 없습니다. 먼저 새로운 모델을 생성합니다...")
         create_recommendation_model()
     
