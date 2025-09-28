@@ -1,0 +1,17 @@
+Almost a million Spotify tracks
+
+- Description
+Dataset contains information about ~0.9 million Spotify tracks.
+Data sampled using Spotify API
+
+- Published Date
+June 3, 2024
+
+- Version
+Version v1
+
+- Category of the data
+music, albums, spotify, tracks, songs
+
+- Source
+https://zenodo.org/records/11453410
