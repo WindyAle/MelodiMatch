@@ -12,13 +12,17 @@ from code.get_reco import load_recommendation_model
 from spotify_utils import get_multiple_track_details
 
 # --- CSS 스타일 ---
-# Spotify의 녹색(#1DB954)에서 검은색(#000000)으로 변하는 세로 그라데이션 배경
+# 배경 검정색, 버튼 등 녹색
 # 텍스트 색상은 흰색으로 지정하여 가독성 확보
 page_bg_img = """
 <style>
 /* 메인 콘텐츠 영역 */
 [data-testid="stAppViewContainer"] {
-    background-image: linear-gradient(to bottom, #1DB954, #000000);
+    background-color: #000000;
+}
+
+hr {
+    border-top: 1px solid #555; /* Light gray for dark theme */
 }
 
 /* 헤더 영역 (페이지 상단 여백) */
@@ -28,6 +32,7 @@ page_bg_img = """
 
 [data-testid="stSidebar"] {
     background-color: #000000; /* 검은색 배경 적용 */
+    border-right: 1px solid #555; /* Light gray separator */
 }
 
 /* 사이드바 내부의 텍스트 색상을 흰색으로 변경 */
@@ -45,6 +50,11 @@ page_bg_img = """
     background-color: rgba(28, 28, 28, 0.8); /* 반투명 검은색 배경 */
     border-radius: 10px; /* 둥근 모서리 */
     padding: 1rem; /* 내부 여백 */
+}
+
+/* 펼쳐진 expander의 내용 배경을 투명하게 만듭니다 */
+[data-testid="stExpander"] div[role="region"] {
+    background-color: transparent !important;
 }
 
 /* 버튼 스타일링 */
@@ -67,6 +77,13 @@ page_bg_img = """
 /* 흰색 텍스트 색상 적용 (가독성 향상) */
 h1, h2, h3, h4, h5, h6, p, li, .st-emotion-cache-1kyxreq, .st-emotion-cache-1y4p8pa {
     color: white !important;
+}
+
+/* 플레이어 컬럼을 스크롤에 따라 고정시킵니다 */
+[data-testid="stHorizontalBlock"] > div:nth-child(2) {
+    position: sticky;
+    top: 5rem;
+    align-self: flex-start;
 }
 
 </style>
@@ -125,29 +142,10 @@ def get_recommendations(selected_index, n_recommendations):
         st.write("비슷한 곡들을 찾고 있어요... 🕵️‍♀️")
         n_candidates = min(100, len(df) - 1)
         distances, indices = knn_model.kneighbors(song_features_transformed, n_neighbors=n_candidates + 1)
-        
-        # 자기 자신을 제외한 이웃 인덱스
-        neighbor_indices = indices.flatten()[1:] 
+        neighbor_indices = indices.flatten()[1:]
         
         st.write("추천 목록을 완성하는 중... 🎁")
-        
-        # 추천 후보 목록에서 원본 곡과 관련된 곡들 제외
-        original_song = df.loc[selected_index]
-        original_song_title = original_song['track_name'].lower()
-        original_song_artists = original_song['artist_name'].lower()
-
-        candidates_df = df.loc[neighbor_indices]
-
-        # 조건 1: 곡 제목이 원본 곡 제목을 포함하는가?
-        title_match = candidates_df['track_name'].str.lower().str.contains(original_song_title, na=False)
-        # 조건 2: 아티스트 이름이 원본 곡 아티스트를 포함하는가?
-        artist_match = candidates_df['artist_name'].str.lower().str.contains(original_song_artists, na=False)
-
-        # 두 조건이 모두 참인 경우(즉, 제외 대상)를 제외하고 필터링
-        filtered_candidates = candidates_df[~(title_match & artist_match)]
-        
-        # 필터링된 결과에서 n_recommendations 개수만큼 선택
-        st.session_state.recommendation_indices = filtered_candidates.head(n_recommendations).index.tolist()
+        st.session_state.recommendation_indices = neighbor_indices[:n_recommendations]
         st.session_state.show_recommendations = True
 
 # --- 세션 상태 관리 ---
@@ -213,13 +211,19 @@ if st.session_state.show_recommendations:
         # 사용자가 입력한 곡 정보
         selected_song_details = fetch_spotify_data([df.loc[st.session_state.selected_track_index]['track_id']])[0]
         if selected_song_details:
-            c1, c2 = st.columns([1, 4])
+            c1, c2, c3 = st.columns([1, 3, 1])
             with c1:
                 st.image(selected_song_details['album_cover_url'] or "")
             with c2:
                 st.markdown(f"## **{selected_song_details['name']}**")
                 st.markdown(f"### *{selected_song_details['artists']}*", unsafe_allow_html=True)
-                st.session_state.spotify_player_url = f"https://open.spotify.com/embed/track/{selected_song_details['id']}"
+                # 추천 페이지가 처음 로드될 때만 플레이어를 설정하고, 사용자가 다른 곡을 선택하면 덮어쓰지 않도록 함
+                if st.session_state.spotify_player_url is None:
+                    st.session_state.spotify_player_url = f"https://open.spotify.com/embed/track/{selected_song_details['id']}"
+            with c3:
+                if st.button("▶️ 재생", key=f"play_main_{selected_song_details['id']}", use_container_width=True):
+                    st.session_state.spotify_player_url = f"https://open.spotify.com/embed/track/{selected_song_details['id']}"
+                    st.rerun()
             
             st.divider()
 
@@ -232,13 +236,14 @@ if st.session_state.show_recommendations:
 
         for details in rec_details_list:
             if not details: continue
-            expander_title = f"**{details['name']}** :gray[by *{details['artists']}*]"
+            expander_title = f"**{details['name']}** by *{details['artists']}*"
             with st.expander(expander_title, expanded=False):
                 c1, c2, c3 = st.columns([1, 3, 1])
                 with c1: st.image(details['album_cover_url'] or "")
                 with c2:
-                    st.markdown(f"**앨범:** {details['name']}")
-                    st.markdown(f"**발매:** {details['release_year']}")
+                    st.markdown(f"***{details['name']}***")
+                    st.markdown(f"{details['artists']}")
+                    st.markdown(f"{details['release_year']}년")
                 with c3:
                     if st.button("▶️ 재생", key=f"play_rec_{details['id']}", use_container_width=True):
                         st.session_state.spotify_player_url = f"https://open.spotify.com/embed/track/{details['id']}"
