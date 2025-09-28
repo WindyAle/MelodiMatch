@@ -1,0 +1,16 @@
+[theme]
+# Streamlit의 기본 테마를 다크 모드로 강제 설정
+base = "dark"
+
+# 앱의 주 배경색 (검은색)
+background_color = "#0E1117"
+
+# Expander, 사이드바, 위젯 등에 사용되는 보조 배경색 (어두운 회색으로 고정)
+# 이 색상이 Expander의 흰색 배경 문제를 해결합니다.
+secondary_background_color = "#1C1C1C"
+
+# 버튼 등에 사용되는 주 색상 (Spotify 녹색)
+primary_color = "#1DB954"
+
+# 텍스트 색상
+text_color = "#FAFAFA"
